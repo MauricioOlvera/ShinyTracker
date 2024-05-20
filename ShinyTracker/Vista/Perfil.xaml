@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShinyTracker.Vista.Perfil"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <ScrollView>
+
+            <Grid RowSpacing="{OnPlatform iOS=25,Android=18}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <!---->
+                    <RowDefinition Height="Auto"/>
+                    <!--1-->
+                    <RowDefinition Height="Auto"/>
+                    <!--2-->
+                    <RowDefinition Height="Auto"/>
+                    <!--3-->
+                    <RowDefinition Height="Auto"/>
+                    <!--4-->
+                    <RowDefinition Height="Auto"/>
+                    <!--5-->
+                    <RowDefinition Height="Auto"/>
+                    <!--6-->
+                    <RowDefinition Height="Auto"/>
+                    <!--8-->
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="1,0">
+                        <GradientStop Color="LightSkyBlue" Offset="0.5"/>
+                        <GradientStop Color="LightCyan" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+
+                <StackLayout>
+                    <Label Text="Volver"
+                       FontSize="20"
+                       TextColor="Black"
+                       Margin="20,20,0,0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding VolverCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+
+                <StackLayout Grid.Row="1" HorizontalOptions="Center" WidthRequest="300">
+                    <Label Text="{Binding Usuario}"
+                           FontSize="35"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           TextColor="Black"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="2" HorizontalOptions="Center">
+
+                    <Frame CornerRadius="150"
+                           IsClippedToBounds="True"
+                           HeightRequest="250"
+                           WidthRequest="250">
+                        <Image Source="{Binding FotoUrl}"
+                               Aspect="AspectFill"
+                               Margin="-20">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding PonerFotoCommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout Grid.Row="3" WidthRequest="300">
+                    <Label Text="No. Pokémon atrapados:" FontSize="Large" HorizontalOptions="Center"/>
+
+                    <Label Text="{Binding CantPokemon}" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"/>
+                </StackLayout>
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

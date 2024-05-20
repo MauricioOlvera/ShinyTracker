@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShinyTracker.Vista.Inicio.InicioMaster"
+             Title="InicioMaster"
+             BackgroundColor="White">
+    <ContentPage.Content>
+
+        <StackLayout>
+
+            <Image Source="https://i.ibb.co/JyRYmck/logo.png"/>
+
+            <Button Text="Mis Pokémon Shiny"
+                    TextTransform="None"
+                    HeightRequest="50"
+                    BackgroundColor="White"
+                    ImageSource="https://i.ibb.co/brqsvvP/icono-shiny.png"
+                    Command="{Binding IrMisPokemonCommand}"/>
+
+            <Button Text="Registrar Pokémon Shiny"
+                    TextTransform="None"
+                    HeightRequest="50"
+                    BackgroundColor="White"
+                    ImageSource="https://i.ibb.co/hB3sLgS/icono-agregar.png"
+                    Command="{Binding IrAgregarCommand}"/>
+
+            <Button Text="Perfil"
+                    TextTransform="None"
+                    HeightRequest="50"
+                    BackgroundColor="White"
+                    ImageSource="https://i.ibb.co/KhvHvGz/icono-perfil.png"
+                    Command="{Binding IrPerfilCommand}"/>
+
+            <Button Text="Cerrar Sesion"
+                    TextTransform="None"
+                    HeightRequest="50"
+                    BackgroundColor="White"
+                    ImageSource="https://i.ibb.co/QQ1B3q4/icono-cerrar-sesion.png"
+                    Command="{Binding CerrarSesionCommand}"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShinyTracker.Vista.CambiarContra"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <ScrollView>
+
+            <Grid RowSpacing="{OnPlatform iOS=25,Android=18}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <!---->
+                    <RowDefinition Height="Auto"/>
+                    <!--1-->
+                    <RowDefinition Height="Auto"/>
+                    <!--2-->
+                    <RowDefinition Height="Auto"/>
+                    <!--3-->
+                    <RowDefinition Height="Auto"/>
+                    <!--4-->
+                    <RowDefinition Height="Auto"/>
+                    <!--5-->
+                    <RowDefinition Height="Auto"/>
+                    <!--6-->
+                    <RowDefinition Height="Auto"/>
+                    <!--8-->
+
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="1,0">
+                        <GradientStop Color="LightSkyBlue" Offset="0.5"/>
+                        <GradientStop Color="LightCyan" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+
+                <StackLayout Grid.Row="1">
+                    <Label Text="Volver"
+                       FontSize="20"
+                       TextColor="Black"
+                       Margin="20,0,0,0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding RegresarCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Image
+                    Source="https://i.ibb.co/JyRYmck/logo.png"
+                    HeightRequest="180"
+                    />
+                </StackLayout>
+
+                <StackLayout Grid.Row="2" HorizontalOptions="Center" Orientation="Vertical" Margin="0,0,0,10">
+                    <Label
+                         Text="Cambiar contraseña"
+                         FontAttributes="Bold"
+                         HorizontalOptions="Center"
+                         FontSize="26"
+                         Margin="0,0,0,5"
+                         WidthRequest="300"
+                         TextColor="{OnPlatform Android=Black}"
+                         />
+                </StackLayout>
+
+                <StackLayout Grid.Row="3" HorizontalOptions="Center" WidthRequest="{OnPlatform iOS=300,Android=300}" Orientation="Vertical"  >
+                    <Label
+                    Text="Correo"
+                    FontSize="{OnPlatform Android=13}"
+                    TextColor="Black"
+                    />
+                    <Frame
+                    HasShadow="{OnPlatform Android=true,iOS=false}"
+                    Padding="{OnPlatform Android=8,iOS=0}"
+                    CornerRadius="{OnPlatform Android=7}"
+                    >
+                        <Entry
+                    Placeholder="ejemplo@gmail.com"
+                    Keyboard="Email"
+                    MaxLength="25"
+                    Text="{Binding Correo, Mode=TwoWay}"
+                    FontSize="{OnPlatform Android=15,iOS=16}"
+                    />
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout Grid.Row="4" HorizontalOptions="Center" Orientation="Vertical" >
+                    <Button
+                     Text="Enviar correo"
+                            TextColor="Black"
+                            FontSize="15"
+                            BackgroundColor="LightYellow"
+                            FontAttributes="Bold"
+                            WidthRequest="300"
+                            HeightRequest="50"
+                            TextTransform="None"
+                            CornerRadius="25"
+                            Command="{Binding EnviarCorreoCommand}"
+                    />
+
+                </StackLayout>
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

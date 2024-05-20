@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShinyTracker.Vista.DetalleShiny"
+             xmlns:sharpnado="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
+             NavigationPage.HasNavigationBar="False">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="1,0">
+                <GradientStop Color="#10439F" Offset="0.1"/>
+                <GradientStop Color="Aqua" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <StackLayout Margin="10,0,10,0">
+            <Label Text="Volver"
+                   TextColor="White"
+                   FontSize="20"
+                   HorizontalOptions="Start"
+                   Margin="10,20,0,0">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding VolverCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label Text="{Binding ParametrosRecibe.NoPokedex}"
+                   TextColor="White"
+                   FontSize="50"
+                   FontAttributes="Bold"
+                   Margin="0,20,0,0"
+                   />
+
+            <Frame CornerRadius="25"
+                   IsClippedToBounds="True"
+                   HeightRequest="180"
+                   HasShadow="True"
+                   Margin="0,10,0,10">
+                <Image Source="{Binding ParametrosRecibe.Imagen}"
+                       Aspect="AspectFill"
+                       HeightRequest="300"
+                       Margin="-20"/>
+            </Frame>
+
+            <Label Text="{Binding ParametrosRecibe.Pokemon}"
+                   FontSize="40"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,10"/>
+
+            <Grid>
+                <sharpnado:MaterialFrame
+                    CornerRadius="15"
+                    MaterialBlurStyle="Dark"
+                    MaterialTheme="AcrylicBlur"/>
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="20,10,20,10">
+
+                        <StackLayout HorizontalOptions="StartAndExpand">
+                            <Label Text="Juego"
+                                   FontSize="23"
+                                   FontAttributes="Bold"
+                                   TextColor="White"
+                                   Margin="0,10,0,0"/>
+
+                            <Label Text="{Binding ParametrosRecibe.Juego}"
+                                   FontSize="23"
+                                   TextColor="White"
+                                   Margin="0,0,0,10"/>
+                        </StackLayout>
+
+                        <StackLayout>
+                            <Label Text="Fecha de Captura"
+                                   FontSize="23"
+                                   TextColor="White"
+                                   FontAttributes="Bold"
+                                   Margin="0,10,0,0"/>
+
+                            <Label Text="{Binding ParametrosRecibe.FechaCaptura}"
+                                   FontSize="23"
+                                   TextColor="White"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+
+        </StackLayout>
+    </Grid>
+</ContentPage>

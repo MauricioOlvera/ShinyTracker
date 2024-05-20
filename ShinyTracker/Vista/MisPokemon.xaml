@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShinyTracker.Vista.MisPokemon"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="AliceBlue">
+    <Grid RowDefinitions="50,*">
+        <StackLayout>
+            <Label Text="Volver"
+                       FontSize="20"
+                       TextColor="Black"
+                       Margin="20,20,0,0">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding VolverCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+        
+        <StackLayout Grid.Row="1">
+
+            <CollectionView BackgroundColor="AliceBlue"
+                            ItemsSource="{Binding ListaPokemon}"
+                            x:Name="Lista">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowDefinitions="5,*">
+
+                            <Frame Grid.Row="1"
+                                   WidthRequest="350"
+                                   HorizontalOptions="Center"
+                                   CornerRadius="10"
+                                   BackgroundColor="LightSkyBlue">
+
+                                <StackLayout>
+                                    <Label Text="{Binding NoPokedex}"/>
+                                    <Label Text="{Binding Pokemon}" FontSize="20"/>
+                                    <Label Text="{Binding Juego}"/>
+                                    <Label Text="{Binding FechaCaptura}"/>
+                                    <Button HorizontalOptions="Start"
+                                            Text="Editar"
+                                            TextTransform="None"
+                                            FontAttributes="Bold"
+                                            CornerRadius="25"
+                                            HeightRequest="50"
+                                            BackgroundColor="LightYellow"
+                                            Command="{Binding Path=BindingContext.IrEditarCommand, Source={x:Reference Lista}}"
+                                            CommandParameter="{Binding .}"
+                                            />
+                                </StackLayout>
+
+                            </Frame>
+
+                            <Image Source="{Binding Imagen}"
+                                   Grid.RowSpan="2"
+                                   HeightRequest="100"
+                                   HorizontalOptions="End"
+                                   Margin="0,10,30,0"/>
+
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Path=BindingContext.IrDetalleCommand, Source={x:Reference Lista}}"
+                                                      CommandParameter="{Binding .}"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+        </StackLayout>
+    </Grid>
+</ContentPage>

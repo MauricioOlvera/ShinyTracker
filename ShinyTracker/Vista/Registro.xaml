@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShinyTracker.Vista.Registro"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid RowSpacing="{OnPlatform iOS=25,Android=20}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!--1-->
+                <RowDefinition Height="Auto"/>
+                <!--2-->
+                <RowDefinition Height="Auto"/>
+                <!--3-->
+                <RowDefinition Height="Auto"/>
+                <!--4-->
+                <RowDefinition Height="Auto"/>
+                <!--5-->
+                <RowDefinition Height="Auto"/>
+                <!--6-->
+                <RowDefinition Height="Auto"/>
+                <!--7-->
+                <RowDefinition Height="Auto"/>
+                <!--8-->
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="1,0">
+                    <GradientStop Color="LightSkyBlue" Offset="0.5"/>
+                    <GradientStop Color="LightCyan" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <StackLayout Grid.Row="1">
+                <Label Text="Volver"
+                       FontSize="20"
+                       TextColor="Black"
+                       Margin="20,0,0,0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding IrLogInCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Image
+                    Source="https://i.ibb.co/JyRYmck/logo.png"
+                    HeightRequest="180"
+                    />
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" HorizontalOptions="Center">
+                <Label
+                    Text="Registro"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            FontSize="Large"
+                            WidthRequest="300"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="3" HorizontalOptions="Center" WidthRequest="300" Orientation="Vertical" >
+                <Label
+                     Text="Usuario"
+                     FontSize="{OnPlatform Android=13}"
+                     TextColor="Black"/>
+
+                <Frame
+                     HasShadow="{OnPlatform Android=true,iOS=false}"
+                     Padding="{OnPlatform Android=6,iOS=0}"
+                     CornerRadius="{OnPlatform Android=7}"
+                     >
+
+                    <Entry
+                    Placeholder="Usuario"
+                    MaxLength="25"
+                    Keyboard="Text"
+                    FontSize="{OnPlatform Android=15,iOS=16}"
+                    Text="{Binding Usuario, Mode=TwoWay}"
+                    />
+
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Grid.Row="4" HorizontalOptions="Center" WidthRequest="{OnPlatform iOS=300,Android=300}" Orientation="Vertical"  >
+                <Label
+                    Text="Correo"
+                    FontSize="{OnPlatform Android=13}"
+                    TextColor="Black"
+                    />
+                <Frame
+                    HasShadow="{OnPlatform Android=true,iOS=false}"
+                    Padding="{OnPlatform Android=6,iOS=0}"
+                    CornerRadius="{OnPlatform Android=7}"
+                    >
+                    <Entry
+                    Placeholder="ejemplo@gmail.com"
+                    Keyboard="Email"
+                    MaxLength="25"
+                    FontSize="{OnPlatform Android=15,iOS=16}"
+                    Text="{Binding Correo, Mode=TwoWay}"
+                    />
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Grid.Row="5" HorizontalOptions="Center" WidthRequest="300" Orientation="Vertical" >
+
+                <Label
+                    Text="Contraseña"
+                    FontSize="{OnPlatform Android=13}"
+                    TextColor="Black"
+                    />
+
+                <Frame
+                     HasShadow="{OnPlatform Android=true,iOS=false}"
+                     Padding="{OnPlatform Android=6,iOS=0}"
+                    CornerRadius="{OnPlatform Android=7}"
+                     >
+
+                    <Entry
+                    Placeholder="Contraseña"
+                    MaxLength="25"
+                    IsPassword="True"
+                    FontSize="{OnPlatform Android=15,iOS=16}"
+                    Text="{Binding Contraseña, Mode=TwoWay}"
+                    />
+
+                </Frame>
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="6" HorizontalOptions="Center" WidthRequest="300" Orientation="Horizontal" Spacing="20">
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="7" HorizontalOptions="Center">
+                <ActivityIndicator
+                       IsRunning="{Binding IsRunningTxt, Mode=TwoWay}"
+                       IsVisible="{Binding IsVisibleTxt, Mode=TwoWay}"
+                       Color="Black"
+
+                       />
+            </StackLayout>
+
+
+            <StackLayout Grid.Row="8" HorizontalOptions="Center" Orientation="Vertical" >
+                <Button
+                     Text="Registrarse"
+                            TextColor="Black"
+                            FontSize="15"
+                            BackgroundColor="LightYellow"
+                     FontAttributes="Bold"
+                            WidthRequest="300"
+                            TextTransform="None"
+                            HeightRequest="50"
+                            CornerRadius="25"
+                            Command="{Binding RegistrarCommand}"/>
+
+                <Label Text="¿Ya tienes cuenta? Inicia Sesion"
+                       TextColor="Black"
+                       FontSize="12"
+                       TextDecorations="Underline">
+
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding IrLogInCommand}"/>
+                    </Label.GestureRecognizers>
+
+                </Label>
+
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

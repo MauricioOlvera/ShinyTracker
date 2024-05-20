@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShinyTracker.Vista.EditarPokemon"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <ScrollView>
+
+            <Grid RowSpacing="{OnPlatform iOS=25,Android=18}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <!---->
+                    <RowDefinition Height="Auto"/>
+                    <!--1-->
+                    <RowDefinition Height="Auto"/>
+                    <!--2-->
+                    <RowDefinition Height="Auto"/>
+                    <!--3-->
+                    <RowDefinition Height="Auto"/>
+                    <!--4-->
+                    <RowDefinition Height="Auto"/>
+                    <!--5-->
+                    <RowDefinition Height="Auto"/>
+                    <!--6-->
+                    <RowDefinition Height="Auto"/>
+                    <!--8-->
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="1,0">
+                        <GradientStop Color="LightSkyBlue" Offset="0.5"/>
+                        <GradientStop Color="LightCyan" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+
+                <StackLayout Grid.Row="1" HorizontalOptions="Center" WidthRequest="300">
+                    <Label Text="Volver"
+                       FontSize="20"
+                       TextColor="Black"
+                       Margin="-30,0,0,10">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding VolverCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    
+                    <Label Text="Editar Pokémon" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="2" HorizontalOptions="Center" WidthRequest="300">
+                    <Label
+                    Text="Pokémon"
+                    FontSize="13"
+                    TextColor="Black"
+                    />
+                    <Frame
+                    HasShadow="True"
+                    Padding="8"
+                    CornerRadius="7"
+                    >
+                        <Entry
+                    Placeholder="Pokémon"
+                    MaxLength="25"
+                    Text="{Binding Pokemon}"
+                    FontSize="15"
+                    />
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout Grid.Row="3" HorizontalOptions="Center" WidthRequest="300">
+                    <Label
+                    Text="Numero de Pokédex"
+                    FontSize="13"
+                    TextColor="Black"
+                    />
+                    <Frame
+                    HasShadow="true"
+                    Padding="8"
+                    CornerRadius="7">
+
+                        <Entry Placeholder="#0001"
+                        Keyboard="Numeric"
+                        MaxLength="5"
+                        Text="{Binding Numero}"
+                        FontSize="15"/>
+
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout Grid.Row="4" HorizontalOptions="Center" WidthRequest="300">
+                    <Label
+                    Text="Juego"
+                    FontSize="13"
+                    TextColor="Black"
+                    />
+                    <Frame
+                    HasShadow="true"
+                    Padding="8"
+                    CornerRadius="7">
+
+                        <Entry Placeholder="Juego"
+                        Text="{Binding Juego}"
+                        FontSize="15"/>
+
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout Grid.Row="5" HorizontalOptions="Center" WidthRequest="300">
+                    <Label
+                    Text="Fecha de Captura"
+                    FontSize="13"
+                    TextColor="Black"
+                    />
+                    <Frame
+                    HasShadow="true"
+                    Padding="8"
+                    CornerRadius="7"
+                    >
+                        <DatePicker Date="{Binding Fecha}"
+                                    FontSize="15"/>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout Grid.Row="6" HorizontalOptions="Center" WidthRequest="300">
+                    <Image Source="{Binding Imagen}"
+                           HorizontalOptions="Center"
+                           HeightRequest="80"/>
+
+                    <Button Text="Subir imagen"
+                            BackgroundColor="LightYellow"
+                            FontAttributes="Bold"
+                            CornerRadius="25"
+                            HeightRequest="50"
+                            TextTransform="None"
+                            Command="{Binding PonerFotoCommand}"/>
+
+                </StackLayout>
+
+                <StackLayout Grid.Row="7" HorizontalOptions="Center">
+
+                    <Label Text="Vista previa"
+                           TextColor="Black"
+                           HorizontalOptions="Center"/>
+
+                    <Grid RowDefinitions="5,*">
+
+                        <Frame Grid.Row="1"
+                       WidthRequest="350"
+                       HorizontalOptions="Center"
+                       CornerRadius="10">
+
+                            <StackLayout>
+                                <Label Text="{Binding Numero}"/>
+                                <Label Text="{Binding Pokemon}" FontSize="20"/>
+                                <Label Text="{Binding Juego}"/>
+                                <Label Text="{Binding Fecha}"/>
+                            </StackLayout>
+
+                        </Frame>
+
+                        <Image Source="{Binding ImagenUrl}"
+                       Grid.RowSpan="2"
+                       HeightRequest="100"
+                       HorizontalOptions="End"
+                       Margin="0,10,30,0"
+                       />
+
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout Grid.Row="8" HorizontalOptions="Center" WidthRequest="300">
+                    <Button Text="Actualizar Pokemon"
+                            TextTransform="None"
+                            BackgroundColor="LightYellow"
+                            FontAttributes="Bold"
+                            CornerRadius="25"
+                            HeightRequest="50"
+                            Margin="0,0,0,10"
+                            Command="{Binding ActualizarCommand}"/>
+                </StackLayout>
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
